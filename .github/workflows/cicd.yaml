@@ -42,10 +42,11 @@ jobs:
                 path: ./dist
 
             - name: Upload via FTP
-              uses: airvzxf/ftp-deployment-action@v2
+              uses: pontago/lftp-deploy-action@master
               with:
-                server: tpupload.net
-                user: if0_42400053
+                protocol: ftp
+                host: tpupload.net
+                username: if0_42400053
                 password: ${{secrets.FTP_PASSWORD}} 
                 local_dir: "./dist"
 
