@@ -42,11 +42,10 @@ jobs:
                 path: ./dist
 
             - name: Upload via FTP
-              uses: pontago/lftp-deploy-action@master
+              uses: airvzxf/ftp-deployment-action@v2
               with:
-                protocol: ftp
-                host: ftpupload.net
-                username: if0_42400053
+                server: ftp://ftpupload.net
+                user: if0_42400053
                 password: ${{secrets.FTP_PASSWORD}} 
                 local_dir: ./dist
                 remote_dir: ./htdocs
