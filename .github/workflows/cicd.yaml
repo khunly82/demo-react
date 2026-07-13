@@ -1,7 +1,9 @@
 name: Build And Deploy
 
 on:
-    workflow_dispatch:
+    # workflow_dispatch:
+    push:
+        branches: [main]
 
 jobs:
     Build:
@@ -47,6 +49,6 @@ jobs:
                 server: ftpupload.net
                 username: if0_42400053
                 password: ${{secrets.FTP_PASSWORD}} 
-                local-dir: ./dist
-                server-dir: ./htdocs
+                local-dir: ./dist/
+                server-dir: ./htdocs/
 
