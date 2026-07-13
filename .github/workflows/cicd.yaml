@@ -25,7 +25,22 @@ jobs:
 
             - name: Build
               run: npm run build
-            
-            - name: echo build
-              run: ls -l -a dist
+
+            - name: Uploadload Artifact
+              uses: actions/upload-artifact@v7
+              with:
+                name: build_result
+                path: ./dist
+    Deploy:
+        runs-on: ubuntu-latest
+        needs: [Build]
+        steps:
+            - name: Download Artifact
+              uses: actions/download-artifact@v8
+              with:
+                name: build_result
+                path: ./dist
+
+            - name: check
+              run: ls -l -a ./dist
 
