@@ -27,5 +27,5 @@ jobs:
               run: npm run build
             
             - name: echo build
-              run: ls -l -a /dist
+              run: ls -l -a dist
 
