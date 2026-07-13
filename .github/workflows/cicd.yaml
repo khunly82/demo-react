@@ -41,6 +41,11 @@ jobs:
                 name: build_result
                 path: ./dist
 
-            - name: check
-              run: ls -l -a ./dist
+            - name: Upload via FTP
+              uses: airvzxf/ftp-deployment-action@v2
+              with:
+                server: tpupload.net
+                user: if0_42400053
+                password: ${{secrets.FTP_PASSWORD}} 
+                local_dir: "./dist"
 
