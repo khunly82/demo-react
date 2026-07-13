@@ -8,9 +8,24 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+            # get the  code
             - name: Get the code
               uses: actions/checkout@v7
-            - name: Step ?
-              run: ls -l -a
+
+            # install node
+            - name: Install Node
+              uses: actions/setup-node@v6
+              with:
+                node-version: 22.x
+            
+            # install dependencies
+            - name: Install dependencies
+              run: npm i
             # build
+
+            - name: Build
+              run: npm run build
+            
+            - name: echo build
+              run: ls -l -a /dist
 
