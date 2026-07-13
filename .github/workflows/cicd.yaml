@@ -8,7 +8,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
-            - name: step 1
+            - name: Get the code
+              uses: actions/checkout@v7
+            - name: Step ?
               run: ls -l -a
             # build
 
